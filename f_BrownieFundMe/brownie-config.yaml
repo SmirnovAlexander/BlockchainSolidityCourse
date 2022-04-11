@@ -1,0 +1,9 @@
+dependencies:
+  - smartcontractkit/chainlink@1.2.1
+compiler:
+  solc:
+    remappings:
+      "@chainlink=smartcontractkit/chainlink@1.2.1"
+wallets:
+  from_key: ${PRIVATE_KEY}
+dotenv: .env
