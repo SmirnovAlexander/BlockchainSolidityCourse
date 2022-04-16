@@ -1,6 +1,8 @@
 *Big Update*: [New Rinkeby Faucet Located Here](https://faucets.chain.link/rinkeby).
 You can find [Backup Faucets here](https://docs.chain.link/docs/link-token-contracts/#rinkeby).
 
+Additionally, lesson 7 uses Chainlink VRF v1 instead of v2, [you can find the docs for Chainlink VRFv1 here](https://docs.chain.link/docs/get-a-random-number/v1/). 
+
 [YouTube Video](https://www.youtube.com/watch?v=M576WGiDBdQ)
 
 <br/>
@@ -426,6 +428,8 @@ Welcome to the repository for the Ultimate Solidity, Blockchain, and Smart Contr
 # Lesson 7: [SmartContract Lottery](https://github.com/PatrickAlphaC/smartcontract-lottery)
 💻 Code: https://github.com/PatrickAlphaC/smartcontract-lottery
 
+[Chainlink VRF v1 docs](https://docs.chain.link/docs/get-a-random-number/v1/)
+
 ### Introduction
 - Add a `README.md`
 - Defining the project
@@ -782,7 +786,7 @@ Shoutout to [Matt](https://twitter.com/mdurkin92) for the help on the front end!
 # Closing and Summary
 ## Security
 - [Best Practices](https://consensys.github.io/smart-contract-best-practices/)
-- [Attacks](https://consensys.github.io/smart-contract-best-practices/known_attacks/)
+- [Attacks](https://consensys.github.io/smart-contract-best-practices/attacks/)
   - [Oracle Attacks](https://hackernoon.com/how-dollar100m-got-stolen-from-defi-in-2021-price-oracle-manipulation-and-flash-loan-attacks-explained-3n6q33r1)
   - [Re-entrancy Attacks](https://quantstamp.com/blog/what-is-a-re-entrancy-attack)
 - [Damn Vulnerable Defi](https://www.damnvulnerabledefi.xyz/)
