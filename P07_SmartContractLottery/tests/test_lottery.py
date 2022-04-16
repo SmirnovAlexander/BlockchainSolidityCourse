@@ -12,4 +12,3 @@ def test_get_entrance_fee():
     entrance_fee = lottery.getEntranceFee()
     assert entrance_fee > Web3.toWei(0.01, "ether"), f"entrance fee is {entrance_fee}"
     assert entrance_fee < Web3.toWei(0.02, "ether"), f"entrance fee is {entrance_fee}"
-
