@@ -24,6 +24,7 @@ contract Lottery is VRFConsumerBase, Ownable {
     LOTTERY_STATE public lotteryState;
     uint256 public fee;
     bytes32 internal keyHash;
+    event RequestedRandomness(bytes32 requestId);
 
     constructor(
         address _ethUsdPriceFeedAddress,
@@ -82,6 +83,7 @@ contract Lottery is VRFConsumerBase, Ownable {
         // ) % players.length;
         lotteryState = LOTTERY_STATE.CALCULATING_WINNER;
         bytes32 requestId = requestRandomness(keyHash, fee);
+        emit RequestedRandomness(requestId);
     }
 
     function fulfillRandomness(bytes32 _requestId, uint256 _randomness)
@@ -106,11 +108,13 @@ contract Lottery is VRFConsumerBase, Ownable {
         randomness = _randomness;
     }
 
-
+    function getNumberOfPlayers() public view returns(uint count) {
+        return players.length;
+    }
 
     function returnState() public view returns (string memory) {
         if (lotteryState == LOTTERY_STATE.OPEN) return "OPEN";
-        if (lotteryState == LOTTERY_STATE.CLOSED) return "CLOSE";
+        if (lotteryState == LOTTERY_STATE.CLOSED) return "CLOSED";
         if (lotteryState == LOTTERY_STATE.CALCULATING_WINNER) return "CALCULATING_WINNER";
         return "";
     }
