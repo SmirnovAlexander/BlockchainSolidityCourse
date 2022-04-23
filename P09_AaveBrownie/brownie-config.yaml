@@ -1,0 +1,30 @@
+dependencies:
+  - aave/aave-v3-core@1.16.0
+compiler:
+  solc:
+    remappings:
+      - "@aave=aave/aave-v3-core@1.16.0"
+networks:
+  default: "development"
+  # V3 aave is not supported so we will work in rinkeby and polygon
+  # mainnet-fork-dev:
+  #   coin: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+  #   pool_address_provider: "0xB53C1a33016B2DC2fF3653530bfF1848a515c8c5"
+  rinkeby:
+    # coin: "0xc778417E063141139Fce010982780140Aa0cD5Ab"
+    pool_address_provider: "0xBA6378f1c1D046e9EB0F538560BA7558546edF3C"
+    weth_gateway: "0xD1DECc6502cc690Bc85fAf618Da487d886E54Abe"
+    aave_weth_address: "0x608D11E704baFb68CfEB154bF7Fd641120e33aD4"
+  polygon-main-fork:
+    # coin: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"
+    pool_address_provider: "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb"
+    weth_gateway: "0x9BdB5fcc80A49640c7872ac089Cc0e00A98451B6"
+    aave_weth_address: "0x6d80113e533a2C0fe82EaBD35f1875DcEA89Ea97"
+  polygon-test:
+    # coin: "0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889"
+    weth_gateway: "0x2a58E9bbb5434FdA7FF78051a4B82cb0EF669C17"
+    pool_address_provider: "0x5343b5bA672Ae99d627A1C87866b8E53F47Db2E6"
+    aave_weth_address: "0x89a6AE840b3F8f489418933A220315eeA36d11fF"
+wallets:
+  from_key: ${PRIVATE_KEY}
+dotenv: .env
