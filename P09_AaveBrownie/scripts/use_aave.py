@@ -1,7 +1,8 @@
 from scripts.utils import get_account
 from scripts.aave import Aave
 
-LEND_AMOUNT = 0.01 * 1e18
+# LEND_AMOUNT = 0.01 * 1e18
+LEND_AMOUNT = 10 * 1e18
 
 def main():
     account = get_account()
@@ -14,6 +15,10 @@ def main():
     aave.deposit_eth(LEND_AMOUNT)
     aave.print_state()
 
-    # Withdraw
-    aave.withdraw_aave_weth_to_eth()
+    # # Borrow
+    aave.borrow(5 * 1e18)
     aave.print_state()
+
+#     # Withdraw
+#     aave.withdraw_aave_weth_to_eth()
+#     aave.print_state()
