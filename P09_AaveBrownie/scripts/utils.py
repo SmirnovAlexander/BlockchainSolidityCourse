@@ -5,15 +5,6 @@ LOCAL_ENVIRONMENTS = [
     "polygon-main-fork",
 ]
 
-# LOCAL_ENVIRONMENTS_ETH = [
-#     "mainnet-fork-dev",
-# ]
-
-# ENVIRONMENTS_ETH = [
-#     "mainnet-fork-dev",
-#     "rinkeby",
-# ]
-
 def get_account(index=None, idx=None):
     if index:
         return accounts[index]
