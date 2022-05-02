@@ -14,9 +14,14 @@ def get_account(index=None, idx=None):
         return accounts[0]
     return accounts.add(config["wallets"]["from_key"])
 
-def get_token_balance(address, account):
+def get_token_info(address, account):
     token = interface.IERC20Metadata(address)
     balance = token.balanceOf(account.address)
     name = token.name()
-    return balance, name
+    decimals = token.decimals()
+    return balance, name, decimals
 
+def get_asset_price(oracle_address, asset_address):
+    aave_oracle = interface.IAaveOracle(oracle_address)
+    price = aave_oracle.getAssetPrice(asset_address)
+    return price
