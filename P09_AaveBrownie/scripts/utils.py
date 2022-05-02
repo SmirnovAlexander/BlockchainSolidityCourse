@@ -25,3 +25,9 @@ def get_asset_price(oracle_address, asset_address):
     aave_oracle = interface.IAaveOracle(oracle_address)
     price = aave_oracle.getAssetPrice(asset_address)
     return price
+
+def approve_erc20(asset_address, from_address, to_address, amount):
+    token = interface.IERC20Metadata(asset_address)
+    print(f"Approving sending {amount / 10**token.decimals()} {token.name()}...")
+    tx = token.approve(to_address, amount, {"from": from_address})
+    tx.wait(1)
