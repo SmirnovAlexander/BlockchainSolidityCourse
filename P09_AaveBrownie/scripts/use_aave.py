@@ -1,12 +1,14 @@
 from scripts.utils import get_account
 from scripts.aave import Aave
 
-# LEND_AMOUNT = 0.01 * 1e18
-LEND_AMOUNT = 10 * 1e18
+LEND_AMOUNT = 0.1 * 1e18
+# LEND_AMOUNT = 100 * 1e18
+TOKEN_TO_BORROW = "btc"
+# TOKEN_TO_BORROW = "dai"
 
 def main():
     account = get_account()
-    aave = Aave(account)
+    aave = Aave(account, TOKEN_TO_BORROW)
 
     # Initializing
     aave.print_state()
@@ -15,8 +17,8 @@ def main():
     aave.deposit_eth(LEND_AMOUNT)
     aave.print_state()
 
-    # # Borrow
-    aave.borrow(5 * 1e18)
+    # Borrow
+    aave.borrow()
     aave.print_state()
 
 #     # Withdraw
