@@ -8,28 +8,27 @@ compiler:
       - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.5.0"
 networks:
   default: "polygon-main-fork"
-  # V3 aave is not supported so we will work in rinkeby and polygon
-  # mainnet-fork-dev:
-  #   coin: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
-  #   pool_address_provider: "0xB53C1a33016B2DC2fF3653530bfF1848a515c8c5"
   rinkeby:
-    # coin: "0xc778417E063141139Fce010982780140Aa0cD5Ab"
-    pool_address_provider: "0xBA6378f1c1D046e9EB0F538560BA7558546edF3C"
     weth_gateway: "0xD1DECc6502cc690Bc85fAf618Da487d886E54Abe"
     aave_weth_address: "0x608D11E704baFb68CfEB154bF7Fd641120e33aD4"
-    dai: "0x2Ec4c6fCdBF5F9beECeB1b51848fc2DB1f3a26af"
+    pool_address_provider: "0xBA6378f1c1D046e9EB0F538560BA7558546edF3C"
+    aave_oracle: "0xA323726989db5708B19EAd4A494dDe09F3cEcc69"
+    dai: "0x4aAded56bd7c69861E8654719195fCA9C670EB45"
+    btc: "0x124F70a8a3246F177b0067F435f5691Ee4e467DD"
   polygon-main-fork:
-    # coin: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"
-    pool_address_provider: "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb"
     weth_gateway: "0x9BdB5fcc80A49640c7872ac089Cc0e00A98451B6"
     aave_weth_address: "0x6d80113e533a2C0fe82EaBD35f1875DcEA89Ea97"
+    pool_address_provider: "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb"
+    aave_oracle: "0xb023e699F5a33916Ea823A16485e259257cA8Bd1"
     dai: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063"
+    btc: "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6"
   polygon-test:
-    # coin: "0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889"
     weth_gateway: "0x2a58E9bbb5434FdA7FF78051a4B82cb0EF669C17"
-    pool_address_provider: "0x5343b5bA672Ae99d627A1C87866b8E53F47Db2E6"
     aave_weth_address: "0x89a6AE840b3F8f489418933A220315eeA36d11fF"
-    dai: "0xC87385b5E62099f92d490750Fcd6C901a524BBcA"
+    pool_address_provider: "0x5343b5bA672Ae99d627A1C87866b8E53F47Db2E6"
+    aave_oracle: "0x520D14AE678b41067f029Ad770E2870F85E76588"
+    dai: "0x9A753f0F7886C9fbF63cF59D0D4423C5eFaCE95B"
+    btc: "0x85E44420b6137bbc75a85CAB5c9A3371af976FdE"
 wallets:
   from_key: ${PRIVATE_KEY}
 dotenv: .env
