@@ -1,0 +1,19 @@
+{
+    "name": "MARK",
+    "description": "This is Mark Philippoff!",
+    "image": "https://ipfs.io/ipfs/QmWfUcJecXe4Dzjm1EtE1Lt1RrknZqg9ziNVDG5NPdThDu?filename=img.jpg",
+    "attributes": [
+        {
+            "trait_type": "ingelligence",
+            "value": 12
+        },
+        {
+            "trait_type": "strength",
+            "value": 21
+        },
+        {
+            "trait_type": "ussr",
+            "value": 98
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+from scripts.utils import get_account
+from brownie import Markie, config, network
+
+
+SAMPLE_TOKEN_URI = "https://ipfs.io/ipfs/QmcniohknCzUnwK3hhBmbmc1wFbESy1PbcEQhVxo5uQ3F7?filename=mark.json"
+OPENSEA_URL = "https://testnets.opensea.io/assets/{}/{}"
+
+
+def main():
+    account = get_account()
+    markie = Markie.deploy({"from": account.address})
+    tx = markie.createCollectible(
+        SAMPLE_TOKEN_URI,
+        {"from": account.address},
+        publish_source=config["networks"][network.show_active()].get("verify", False)
+    )
+    tx.wait(1)
+    print(f"You can view your NFT at {OPENSEA_URL.format(markie.address, markie.tokenCounter() - 1)}")
