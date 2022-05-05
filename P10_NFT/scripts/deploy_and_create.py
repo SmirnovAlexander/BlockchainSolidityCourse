@@ -6,13 +6,16 @@ SAMPLE_TOKEN_URI = "https://ipfs.io/ipfs/QmcniohknCzUnwK3hhBmbmc1wFbESy1PbcEQhVx
 OPENSEA_URL = "https://testnets.opensea.io/assets/{}/{}"
 
 
-def main():
+def deploy_and_create():
     account = get_account()
-    markie = Markie.deploy({"from": account.address})
-    tx = markie.createCollectible(
-        SAMPLE_TOKEN_URI,
-        {"from": account.address},
+    markie = Markie.deploy(
+        {"from": account.address}, 
         publish_source=config["networks"][network.show_active()].get("verify", False)
     )
+    tx = markie.createCollectible(SAMPLE_TOKEN_URI, {"from": account.address})
     tx.wait(1)
     print(f"You can view your NFT at {OPENSEA_URL.format(markie.address, markie.tokenCounter() - 1)}")
+    return markie
+
+def main():
+    deploy_and_create()
