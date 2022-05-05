@@ -1,6 +1,7 @@
 from brownie import network, accounts, config
 
 LOCAL_ENVIRONMENTS = [
+    "development",
     "mainnet-fork-dev",
     "polygon-main-fork",
 ]
