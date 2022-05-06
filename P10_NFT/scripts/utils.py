@@ -6,6 +6,8 @@ LOCAL_ENVIRONMENTS = [
     "polygon-main-fork",
 ]
 
+OPENSEA_URL = "https://testnets.opensea.io/assets/{}/{}"
+
 def get_account(index=None, idx=None):
     if index:
         return accounts[index]

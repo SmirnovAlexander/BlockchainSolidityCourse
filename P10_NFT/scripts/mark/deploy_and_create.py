@@ -1,9 +1,8 @@
-from scripts.utils import get_account
+from scripts.utils import get_account, OPENSEA_URL
 from brownie import Markie, config, network
 
 
 SAMPLE_TOKEN_URI = "https://ipfs.io/ipfs/QmcniohknCzUnwK3hhBmbmc1wFbESy1PbcEQhVxo5uQ3F7?filename=mark.json"
-OPENSEA_URL = "https://testnets.opensea.io/assets/{}/{}"
 
 
 def deploy_and_create():
