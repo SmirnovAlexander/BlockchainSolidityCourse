@@ -11,7 +11,7 @@ contract MultifacetedCat is ERC721URIStorage, VRFConsumerBaseV2 {
     enum CAT_TYPE {CHEERFUL, FAT, THOUGHTFUL}
 
     uint256 public tokenCounter;
-    mapping(uint256 => CAT_TYPE) tokenIdToType;
+    mapping(uint256 => CAT_TYPE) public tokenIdToType;
     mapping(uint256 => address) requestIdToSender;
 
     event requestedCat(uint256 requestId, address requester);
@@ -36,7 +36,7 @@ contract MultifacetedCat is ERC721URIStorage, VRFConsumerBaseV2 {
         s_subscriptionId = _s_subscriptionId;
         vrfCoordinator = VRFCoordinatorV2Interface(_vrfCoordinator);
         s_keyHash = _s_keyHash;
-        callbackGasLimit = 40000;
+        callbackGasLimit = 1000000;
         requestConfirmations = 3;
         numWords =  1;
     }
@@ -55,11 +55,11 @@ contract MultifacetedCat is ERC721URIStorage, VRFConsumerBaseV2 {
     }
 
     function fulfillRandomWords(uint256 requestId , uint256[] memory randomWords) internal override {
+        // emit catAssigned(1, CAT_TYPE(randomWords[0] % 3));
         CAT_TYPE cat_type = CAT_TYPE(randomWords[0] % 3);
-        uint256 newTokenId = tokenCounter;
-        tokenIdToType[newTokenId] = cat_type;
-        emit catAssigned(newTokenId, cat_type);
-        _safeMint(requestIdToSender[requestId], newTokenId);
+        tokenIdToType[tokenCounter] = cat_type;
+        emit catAssigned(tokenCounter, cat_type);
+        _safeMint(requestIdToSender[requestId], tokenCounter);
         tokenCounter += 1;
     }
 
